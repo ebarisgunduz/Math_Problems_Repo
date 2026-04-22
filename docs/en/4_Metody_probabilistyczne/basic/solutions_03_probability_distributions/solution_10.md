@@ -1,59 +1,78 @@
-## Task 10 — Multinomial Model
+# Task 10 — Multinomial Model
 
-Given:
-- \( n = 6 \) (number of selections)
-- Probabilities:
-  - Strawberry: \( p_1 = 0.4 \)
-  - Lemon: \( p_2 = 0.35 \)
-  - Mint: \( p_3 = 0.25 \)
+## Problem
 
-We want:
-- \( X_1 = 3 \) (strawberry)
-- \( X_2 = 2 \) (lemon)
-- \( X_3 = 1 \) (mint)
+A box contains candies of three flavors:
 
----
+| Flavor     | Probability |
+|------------|-------------|
+| Strawberry | p₁ = 0.40   |
+| Lemon      | p₂ = 0.35   |
+| Mint       | p₃ = 0.25   |
 
-### Multinomial probability formula
+We perform **n = 6** independent selections with replacement.
 
-\[
-P = \frac{6!}{3! \, 2! \, 1!} (0.4)^3 (0.35)^2 (0.25)^1
-\]
+**Find the probability of obtaining:**
+- 3 strawberry (k₁ = 3)
+- 2 lemon (k₂ = 2)
+- 1 mint (k₃ = 1)
 
 ---
 
-### Step-by-step calculation
+## Solution
 
-\[
-\frac{6!}{3!2!1!} = \frac{720}{6 \cdot 2 \cdot 1} = 60
-\]
+### Formula — Multinomial Distribution
 
-\[
-(0.4)^3 = 0.064
-\]
-
-\[
-(0.35)^2 = 0.1225
-\]
-
-\[
-(0.25)^1 = 0.25
-\]
-
-Now multiply:
-
-\[
-P = 60 \cdot 0.064 \cdot 0.1225 \cdot 0.25
-\]
-
-\[
-P \approx 60 \cdot 0.00196 \approx 0.1176
-\]
+$$
+P(k_1, k_2, k_3) = \frac{n!}{k_1! \cdot k_2! \cdot k_3!} \cdot p_1^{k_1} \cdot p_2^{k_2} \cdot p_3^{k_3}
+$$
 
 ---
 
-### Final answer
+### Step 1 — Multinomial Coefficient
 
-\[
+$$
+\frac{n!}{k_1! \cdot k_2! \cdot k_3!} = \frac{6!}{3! \cdot 2! \cdot 1!} = \frac{720}{6 \cdot 2 \cdot 1} = \frac{720}{12} = 60
+$$
+
+---
+
+### Step 2 — Probability Terms
+
+$$
+p_1^{k_1} = (0.40)^3 = 0.064
+$$
+
+$$
+p_2^{k_2} = (0.35)^2 = 0.1225
+$$
+
+$$
+p_3^{k_3} = (0.25)^1 = 0.25
+$$
+
+---
+
+### Step 3 — Multiply Everything Together
+
+$$
+P = 60 \times 0.064 \times 0.1225 \times 0.25
+$$
+
+$$
+P = 60 \times 0.00196
+$$
+
+$$
 \boxed{P \approx 0.1176}
-\]
+$$
+
+---
+
+## Result
+
+The probability of drawing **3 strawberry, 2 lemon, and 1 mint** in 6 selections is:
+
+$$
+P = 0.1176 \quad (11.76\%)
+$$
